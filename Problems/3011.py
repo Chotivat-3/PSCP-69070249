@@ -1,34 +1,38 @@
 """Colors"""
-c = []
-c.append(input())
-c.append(input())
-c1 = c[0]
-c2 = c[1]
 def c_ (x1,x2):
     """Colors"""
-    for i in c :
-        if i != "Red" or i != "Yellow" or i != "Blue":
-            color = "Error" 
-            break
-    if x1 == x2 :
-        color  = f"{x1}"
-    if color != "Error":
-        match x1:
-            case "Red":
-                if x2 == "Yellow":
+    match x1:
+        case "Red":
+            match x2 :
+                case "Red":
+                    color = f"{x1}"
+                case "Yellow":
                     color  = "Orange"
-                else:
+                case "Blue":
                     color  = "Violet"
-            case "Yellow":
-                if x2 == "Red":
+                case _ :
+                    color = "Error"
+        case "Yellow":
+            match x2 :
+                case "Yellow":
+                    color = f"{x1}"
+                case "Red":
                     color  = "Orange"
-                else:
+                case "Blue":
                     color  = "Green"
-            case "Blue":
-                if x2 == "Red":
+                case _ :
+                    color = "Error"
+        case "Blue":
+            match x2 :
+                case "Blue":
+                    color = f"{x1}"
+                case "Red":
                     color  = "Violet"
-                else:
+                case "Yellow":
                     color  = "Green"
-    return color
-color = c_(c1,c2)
-print(color)
+                case _ :
+                    color = "Error"
+        case _:
+            color = "Error"
+    print(color)
+c_(input(),input())
